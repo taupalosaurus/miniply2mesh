@@ -1,0 +1,14 @@
+ply
+format ascii 1.0
+comment object: A single line
+element vertex 2
+property float x
+property float y
+property float z
+element edge 1                        
+property int vertex1                  
+property int vertex2                  
+end_header
+0 0 0 
+0 0 1 
+0 1
