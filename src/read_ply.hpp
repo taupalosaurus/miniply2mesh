@@ -26,11 +26,11 @@ struct Vec3f
   float z;
 };
 
-struct Vec3d
+struct rgb_uchar
 {
-  int x; 
-  int y;
-  int z;
+  unsigned char x; 
+  unsigned char y;
+  unsigned char z;
 };
 
 struct Face
@@ -61,7 +61,7 @@ inline void read_ply(std::string        const & filepath,
                      std::vector<Vec3f>  & out_normals,
                      std::vector<Vec3f>  & out_uvs,
                      std::vector<Face>   & out_faces,
-                     std::vector<Vec3d>  & out_color_per_vertex)
+                     std::vector<rgb_uchar>  & out_color_per_vertex)
 {
 
   using namespace tinyply;
@@ -138,16 +138,16 @@ inline void read_ply(std::string        const & filepath,
   
   file.read(ss);
 
-  // if (vertices)
-  //   std::cout << "\tRead " << vertices->count << " total vertices" << std::endl;
-  // if (faces)
-  //   std::cout << "\tRead " << faces->count << " total faces (triangles)" << std::endl;
-  // if (normals)
-  //   std::cout << "\tRead " << normals->count << " total normals" << std::endl;
-  // if (color_per_vertex)
-  //   std::cout << "\tRead " << color_per_vertex->count << " total colors" << std::endl;
-  // if (uvs)
-  //   std::cout << "\tRead " << uvs->count << " total UVs" << std::endl;
+  if (vertices)
+    std::cout << "\tRead " << vertices->count << " total vertices" << std::endl;
+  if (faces)
+    std::cout << "\tRead " << faces->count << " total faces (triangles)" << std::endl;
+  if (normals)
+    std::cout << "\tRead " << normals->count << " total normals" << std::endl;
+  if (color_per_vertex)
+    std::cout << "\tRead " << color_per_vertex->count << " total colors" << std::endl;
+  if (uvs)
+    std::cout << "\tRead " << uvs->count << " total UVs" << std::endl;
   
 
   // Now copy data to passed arguments

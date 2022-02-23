@@ -61,11 +61,11 @@ void export_gmf_mesh3d(const std::string & filepath, std::vector<Vec3f> & vertic
 
 
 void export_gmf_sol(const std::string & filepath, std::vector<Vec3f> & normals, std::vector<Vec3f> & uvs, 
-                       std::vector<Vec3d> & color_per_vertex)
+                       std::vector<rgb_uchar> & color_per_vertex)
 {
     int                dim, NFacets, NNodes;
     const Vec3f       *norm, *uv;
-    const Vec3d       *cpv;
+    const rgb_uchar       *cpv;
     const Face        *fac;
     char               fileName[128];
     long long          meshIndex;
@@ -143,7 +143,7 @@ int main(int argc, char**argv)
     std::vector<Vec3f>  normals;
     std::vector<Vec3f>  uvs;
     std::vector<Face>   faces;
-    std::vector<Vec3d>  color_per_vertex;
+    std::vector<rgb_uchar>  color_per_vertex;
 
     try {
         read_ply(filepath, vertices, normals, uvs, faces, color_per_vertex);
